@@ -1,0 +1,97 @@
+import { Task, User } from './types';
+
+export const MOCK_USERS: User[] = [
+  { id: '1', name: 'Nguyễn Huy Phi', role: 'Admin', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Phi' },
+  { id: '2', name: 'Trần Văn A', role: 'Assigner', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VanA' },
+  { id: '3', name: 'Lê Thị B', role: 'Executor', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=ThiB' },
+  { id: '4', name: 'Phạm Văn C', role: 'Executor', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=VanC' },
+];
+
+export const MOCK_TASKS: Task[] = [
+  {
+    id: '1',
+    code: 'TASK-001',
+    title: 'Thiết kế giao diện Dashboard',
+    description: 'Thiết kế các biểu đồ và thống kê cho màn hình tổng quan.',
+    category: 'UI/UX Design',
+    assigner: 'Nguyễn Huy Phi',
+    primaryExecutor: 'Lê Thị B',
+    coExecutor: 'Phạm Văn C',
+    startDate: '2024-05-01',
+    expectedEndDate: '2024-05-10',
+    priority: 'Cao',
+    status: 'Đang thực hiện',
+    progress: 60,
+    notes: 'Cần chú ý màu sắc navy blue.',
+    attachments: []
+  },
+  {
+    id: '2',
+    code: 'TASK-002',
+    title: 'Phát triển API Quản lý Task',
+    description: 'Xây dựng các endpoint CRUD cho task.',
+    category: 'Backend Development',
+    assigner: 'Trần Văn A',
+    primaryExecutor: 'Phạm Văn C',
+    coExecutor: '',
+    startDate: '2024-05-02',
+    expectedEndDate: '2024-05-15',
+    priority: 'Cao',
+    status: 'Chưa thực hiện',
+    progress: 0,
+    notes: 'Sử dụng Express.js.',
+    attachments: []
+  },
+  {
+    id: '3',
+    code: 'TASK-003',
+    title: 'Họp tiến độ tuần 1',
+    description: 'Báo cáo kết quả và khó khăn trong tuần đầu.',
+    category: 'Management',
+    assigner: 'Nguyễn Huy Phi',
+    primaryExecutor: 'Tất cả',
+    coExecutor: '',
+    startDate: '2024-05-07',
+    expectedEndDate: '2024-05-07',
+    actualEndDate: '2024-05-07',
+    priority: 'Trung bình',
+    status: 'Hoàn thành',
+    progress: 100,
+    notes: 'Đã hoàn thành tốt.',
+    attachments: []
+  },
+  {
+    id: '4',
+    code: 'TASK-004',
+    title: 'Kiểm thử UI',
+    description: 'Kiểm tra độ tương thích trên các trình duyệt.',
+    category: 'QA',
+    assigner: 'Trần Văn A',
+    primaryExecutor: 'Lê Thị B',
+    coExecutor: '',
+    startDate: '2024-05-12',
+    expectedEndDate: '2024-05-20',
+    priority: 'Thấp',
+    status: 'Đang thực hiện',
+    progress: 30,
+    notes: '',
+    attachments: []
+  },
+  {
+    id: '5',
+    code: 'TASK-005',
+    title: 'Sửa lỗi CSS Landing Page',
+    description: 'Fix lỗi hiển thị trên Mobile.',
+    category: 'Bug Fix',
+    assigner: 'Nguyễn Huy Phi',
+    primaryExecutor: 'Lê Thị B',
+    coExecutor: '',
+    startDate: '2024-05-01',
+    expectedEndDate: '2024-05-05',
+    priority: 'Cao',
+    status: 'Trễ hạn',
+    progress: 80,
+    notes: 'Quá hạn do thiếu tài liệu.',
+    attachments: []
+  }
+];
