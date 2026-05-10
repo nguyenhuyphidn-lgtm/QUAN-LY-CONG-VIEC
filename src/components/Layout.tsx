@@ -26,7 +26,7 @@ const SidebarItem = ({ icon: Icon, label, active, onClick }: SidebarItemProps) =
   </button>
 );
 
-export const Layout = ({ children, activeTab, setActiveTab }: { children: React.ReactNode, activeTab: string, setActiveTab: (t: string) => void }) => {
+export const Layout = ({ children, activeTab, setActiveTab, onAddTask }: { children: React.ReactNode, activeTab: string, setActiveTab: (t: string) => void, onAddTask?: () => void }) => {
   return (
     <div className="flex min-h-screen bg-slate-50 font-sans text-slate-800">
       {/* Sidebar */}
@@ -79,7 +79,7 @@ export const Layout = ({ children, activeTab, setActiveTab }: { children: React.
             
             <div className="h-4 w-[1px] bg-slate-200"></div>
 
-            <Button className="bg-blue-900 text-white hover:bg-blue-800 shadow-md h-9 text-sm font-semibold rounded-lg">
+            <Button onClick={onAddTask} className="bg-blue-900 text-white hover:bg-blue-800 shadow-md h-9 text-sm font-semibold rounded-lg">
               Thêm công việc
             </Button>
           </div>

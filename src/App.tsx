@@ -4,6 +4,8 @@ import { Dashboard } from './components/Dashboard';
 import { TaskTable } from './components/TaskTable';
 import { Kanban } from './components/Kanban';
 import { TaskForm } from './components/TaskForm';
+import { CalendarView } from './components/CalendarView';
+import { ReportsView } from './components/ReportsView';
 import { Task } from './types';
 import { StorageService } from './storage';
 import * as XLSX from 'xlsx';
@@ -70,7 +72,7 @@ export default function App() {
   };
 
   return (
-    <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+    <Layout activeTab={activeTab} setActiveTab={setActiveTab} onAddTask={handleAddTask}>
       <div className="max-w-[1600px] mx-auto">
         {activeTab === 'dashboard' && (
           <Dashboard tasks={tasks} />
@@ -127,31 +129,11 @@ export default function App() {
         )}
 
         {activeTab === 'calendar' && (
-          <div className="h-[600px] flex items-center justify-center bg-white rounded-2xl border border-slate-200 border-dashed">
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto">
-                <CalendarIcon className="w-8 h-8 text-slate-400" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg text-slate-900">Tính năng Lịch đang phát triển</h3>
-                <p className="text-sm text-slate-500">Chúng tôi đang hoàn thiện giao diện lịch trực quan hơn cho bạn.</p>
-              </div>
-            </div>
-          </div>
+          <CalendarView tasks={tasks} onTaskClick={handleEditTask} />
         )}
 
          {activeTab === 'reports' && (
-          <div className="h-[600px] flex items-center justify-center bg-white rounded-2xl border border-slate-200 border-dashed">
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto">
-                <BarChart3 className="w-8 h-8 text-slate-400" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg text-slate-900">Báo cáo chi tiết</h3>
-                <p className="text-sm text-slate-500">Tính năng phân tích hiệu suất theo tuần/tháng sắp ra mắt.</p>
-              </div>
-            </div>
-          </div>
+          <ReportsView tasks={tasks} />
         )}
 
         <TaskForm 
